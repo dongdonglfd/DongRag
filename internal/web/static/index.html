@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MiniRAG</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="header">
+      <div>
+        <p class="eyebrow">PERSONAL KNOWLEDGE BASE</p>
+        <h1>MiniRAG</h1>
+        <p class="subtitle">把自己的文档变成可检索、可引用的知识库。</p>
+      </div>
+      <span id="health" class="status">检查服务中</span>
+    </header>
+
+    <section class="grid">
+      <aside class="panel library">
+        <div class="panel-title"><h2>文档库</h2><button id="refresh" class="icon-button" title="刷新文档">↻</button></div>
+        <form id="upload-form" class="upload">
+          <label class="dropzone" for="file-input">
+            <span class="drop-icon">＋</span>
+            <strong>选择文档</strong>
+            <small>Markdown、TXT、PDF</small>
+          </label>
+          <input id="file-input" name="file" type="file" accept=".md,.markdown,.txt,.pdf,text/plain,text/markdown,application/pdf" hidden>
+          <button class="primary" type="submit">上传并建立索引</button>
+          <p id="upload-message" class="hint"></p>
+        </form>
+        <div id="documents" class="documents"></div>
+      </aside>
+
+      <section class="panel workspace">
+        <div class="panel-title"><h2>知识库问答</h2><span class="chip">Hybrid Search</span></div>
+        <div id="conversation" class="conversation">
+          <div class="empty-state"><span>⌁</span><p>上传文档后，问一个具体问题。</p></div>
+        </div>
+        <form id="query-form" class="query-form">
+          <textarea id="question" rows="3" placeholder="例如：Go 中 context 的主要用途是什么？" required></textarea>
+          <div class="query-actions"><span class="hint">回答会附带召回片段作为来源</span><button class="primary" type="submit">开始检索 <span>↗</span></button></div>
+        </form>
+      </section>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
