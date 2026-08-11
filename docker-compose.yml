@@ -1,0 +1,36 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: minirag
+      POSTGRES_PASSWORD: minirag
+      POSTGRES_DB: minirag
+    ports:
+      - "5432:5432"
+    volumes:
+      - minirag-postgres:/var/lib/postgresql/data
+
+  jaeger:
+    image: jaegertracing/all-in-one:1.57.0
+    profiles: [observability]
+    restart: unless-stopped
+    environment:
+      COLLECTOR_OTLP_ENABLED: "true"
+    ports:
+      - "16686:16686"
+      - "4318:4318"
+
+  prometheus:
+    image: prom/prometheus:v2.53.1
+    profiles: [observability]
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./deploy/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    ports:
+      - "9090:9090"
+
+volumes:
+  minirag-postgres:
