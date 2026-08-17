@@ -1,0 +1,22 @@
+{
+  "environment": {
+    "retrieval_dataset": "testdata/eval.json",
+    "rag_dataset": "testdata/rag_eval.json",
+    "embedding_model": "bge-m3",
+    "reranker_model": "bge-reranker-v2-m3-Q4_K_M.gguf",
+    "reranker_runtime": "llama.cpp b10293 CPU",
+    "top_k": 5,
+    "candidate_k": 50
+  },
+  "rag_reports": [
+    {"mode":"vector","recall_at_1":0.75,"recall_at_5":0.75,"mrr":0.75,"ndcg_at_5":0.75,"answer_correctness":0.7973684210526315,"citation_precision":1,"citation_recall":1,"faithfulness":1,"unsupported_claim_rate":0,"average_pipeline_latency_ms":5992.5,"p95_pipeline_latency_ms":7892},
+    {"mode":"lexical","recall_at_1":0.75,"recall_at_5":0.75,"mrr":0.75,"ndcg_at_5":0.75,"answer_correctness":0.7897426348891096,"citation_precision":1,"citation_recall":1,"faithfulness":1,"unsupported_claim_rate":0,"average_pipeline_latency_ms":5424.75,"p95_pipeline_latency_ms":6043},
+    {"mode":"weighted_hybrid","recall_at_1":0.75,"recall_at_5":0.75,"mrr":0.75,"ndcg_at_5":0.75,"answer_correctness":0.8065350877192983,"citation_precision":1,"citation_recall":1,"faithfulness":1,"unsupported_claim_rate":0,"average_pipeline_latency_ms":6672,"p95_pipeline_latency_ms":9921},
+    {"mode":"hybrid_rrf","recall_at_1":0.75,"recall_at_5":0.75,"mrr":0.75,"ndcg_at_5":0.75,"answer_correctness":0.7346746226030192,"citation_precision":1,"citation_recall":1,"faithfulness":1,"unsupported_claim_rate":0,"average_pipeline_latency_ms":6161.5,"p95_pipeline_latency_ms":10452},
+    {"mode":"hybrid_rerank","recall_at_1":0.75,"recall_at_5":0.75,"mrr":0.75,"ndcg_at_5":0.75,"answer_correctness":0.7960078768349446,"citation_precision":1,"citation_recall":1,"faithfulness":1,"unsupported_claim_rate":0,"average_pipeline_latency_ms":11730.25,"p95_pipeline_latency_ms":12825}
+  ],
+  "retrieval_comparison": {
+    "hybrid_rrf": {"recall_at_1":0.9722222222222222,"recall_at_5":0.9722222222222222,"mrr":1,"ndcg_at_5":0.9785081773758589},
+    "hybrid_rerank": {"recall_at_1":0.9722222222222222,"recall_at_5":1,"mrr":1,"ndcg_at_5":0.9916858280852642,"average_latency_ms":7248.333333333333,"p95_latency_ms":7658}
+  }
+}

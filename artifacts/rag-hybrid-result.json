@@ -1,0 +1,973 @@
+{
+  "reports": [
+    {
+      "mode": "hybrid_rrf",
+      "top_k": 5,
+      "candidate_k": 50,
+      "total_cases": 31,
+      "evaluated_cases": 29,
+      "failed_cases": 0,
+      "answer_evaluated_cases": 31,
+      "answer_failed_cases": 0,
+      "recall_at_1": 0.9137931034482759,
+      "recall_at_k": 0.9827586206896551,
+      "mrr": 1,
+      "ndcg_at_k": 0.9866602480263952,
+      "average_latency_ms": 358.61290322580646,
+      "p95_latency_ms": 452,
+      "average_pipeline_latency_ms": 6175.870967741936,
+      "p95_pipeline_latency_ms": 10140,
+      "pipeline": "rag",
+      "answer_correctness": 0.3206051004640972,
+      "citation_precision": 0.8548387096774194,
+      "citation_recall": 0.8064516129032258,
+      "faithfulness": 0.8709677419354839,
+      "unsupported_claim_rate": 0.12903225806451613,
+      "refusal_accuracy": 0.8709677419354839,
+      "results": [
+        {
+          "id": "rag-pipeline",
+          "question": "RAG 的基本流程包括哪些步骤？",
+          "top_documents": [
+            "rag-basics.md",
+            "rag-evaluation.md",
+            "rag-evaluation.md",
+            "rag-evaluation.md",
+            "hybrid-search.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 436,
+          "pipeline_latency_ms": 7656,
+          "answer": "基础 RAG 流程包括文档解析、文本分块、Embedding、向量检索、上下文拼接和回答生成[1]。",
+          "citations": [
+            "rag-basics.md",
+            "rag-evaluation.md",
+            "rag-evaluation.md",
+            "hybrid-search.md"
+          ],
+          "answer_correctness": 0.9166666666666666,
+          "citation_precision": 1,
+          "citation_recall": 1,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        },
+        {
+          "id": "hybrid-rrf",
+          "question": "RRF 为什么不直接相加向量相似度与关键词分数？",
+          "top_documents": [
+            "hybrid-search.md",
+            "hybrid-search.md",
+            "hybrid-search.md",
+            "rag-evaluation.md",
+            "rag-evaluation.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 440,
+          "pipeline_latency_ms": 5016,
+          "answer": "因为它融合的是相对排名，不要求两种原始分数处于相同量纲 [1]。",
+          "citations": [
+            "hybrid-search.md",
+            "hybrid-search.md",
+            "rag-evaluation.md",
+            "rag-evaluation.md"
+          ],
+          "answer_correctness": 0.47058823529411764,
+          "citation_precision": 1,
+          "citation_recall": 1,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        },
+        {
+          "id": "context-cancel",
+          "question": "上游请求结束或超时时，下游函数应该如何处理？",
+          "top_documents": [
+            "go-context.md",
+            "rag-basics.md",
+            "go-concurrency.md",
+            "go-concurrency.md",
+            "hybrid-search.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 381,
+          "pipeline_latency_ms": 4095,
+          "answer": "函数应该把 context 继续传递给下游调用，让下游及时停止工作。[1]",
+          "citations": [
+            "go-context.md",
+            "rag-basics.md",
+            "go-concurrency.md",
+            "go-concurrency.md",
+            "hybrid-search.md"
+          ],
+          "answer_correctness": 0.7894736842105263,
+          "citation_precision": 1,
+          "citation_recall": 1,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        },
+        {
+          "id": "unknown-topic",
+          "question": "MiniRAG 文档中有没有介绍量子计算的量子纠错算法？",
+          "source_type": "refusal",
+          "top_documents": [
+            "rag-basics.md",
+            "rag-evaluation.md",
+            "rag-evaluation.md",
+            "rag-evaluation.md",
+            "671 马克思主义基本原理.pdf"
+          ],
+          "first_relevant_rank": 0,
+          "recall_at_k": 0,
+          "ndcg_at_k": 0,
+          "latency_ms": 323,
+          "pipeline_latency_ms": 4928,
+          "answer": "资料不足，我不知道。",
+          "citations": [
+            "rag-basics.md",
+            "rag-evaluation.md",
+            "rag-evaluation.md",
+            "671 马克思主义基本原理.pdf"
+          ],
+          "answer_correctness": 1,
+          "citation_precision": 1,
+          "citation_recall": 1,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        },
+        {
+          "id": "rag-en",
+          "question": "What are the main stages of a retrieval augmented generation pipeline?",
+          "source_type": "markdown",
+          "top_documents": [
+            "rag-basics.md",
+            "hybrid-search.md",
+            "rag-evaluation.md",
+            "hybrid-search.md",
+            "go-concurrency.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 413,
+          "pipeline_latency_ms": 3815,
+          "answer": "文档解析、文本分块、Embedding、向量检索、上下文拼接和回答生成 [1]。",
+          "citations": [
+            "rag-basics.md",
+            "hybrid-search.md",
+            "rag-evaluation.md",
+            "hybrid-search.md",
+            "go-concurrency.md"
+          ],
+          "answer_correctness": 0,
+          "citation_precision": 1,
+          "citation_recall": 1,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        },
+        {
+          "id": "rag-purpose",
+          "question": "为什么生成答案前要先查找模型外部的资料？",
+          "source_type": "paraphrase",
+          "top_documents": [
+            "rag-basics.md",
+            "hybrid-search.md",
+            "rag-evaluation.md",
+            "rag-evaluation.md",
+            "rag-evaluation.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 273,
+          "pipeline_latency_ms": 4872,
+          "answer": "因为检索质量通常直接影响最终回答质量 [1]。",
+          "citations": [
+            "rag-basics.md",
+            "hybrid-search.md",
+            "rag-evaluation.md",
+            "rag-evaluation.md"
+          ],
+          "answer_correctness": 0.10256410256410256,
+          "citation_precision": 1,
+          "citation_recall": 1,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        },
+        {
+          "id": "rag-context-en",
+          "question": "How does retrieved context affect generation?",
+          "source_type": "paraphrase",
+          "top_documents": [
+            "rag-basics.md",
+            "go-context.md",
+            "rag-evaluation.md",
+            "rag-evaluation.md",
+            "go-concurrency.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 323,
+          "pipeline_latency_ms": 11789,
+          "answer": "检索到的内容会被放进语言模型的上下文中用于生成答案，且检索质量通常直接影响最终回答质量 [1]。",
+          "citations": [
+            "rag-basics.md",
+            "go-context.md",
+            "rag-evaluation.md",
+            "rag-evaluation.md",
+            "go-concurrency.md"
+          ],
+          "answer_correctness": 0,
+          "citation_precision": 1,
+          "citation_recall": 1,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        },
+        {
+          "id": "rag-production",
+          "question": "生产 RAG 还需要哪些工程能力？",
+          "source_type": "multi_document",
+          "top_documents": [
+            "rag-evaluation.md",
+            "rag-basics.md",
+            "rag-evaluation.md",
+            "rag-evaluation.md",
+            "hybrid-search.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 266,
+          "pipeline_latency_ms": 6888,
+          "answer": "生产 RAG 还需要去重、增量索引、引用来源、评测集、超时和可观测性 [2]。",
+          "citations": [
+            "rag-evaluation.md",
+            "rag-basics.md",
+            "rag-evaluation.md",
+            "hybrid-search.md"
+          ],
+          "answer_correctness": 0.8571428571428571,
+          "citation_precision": 1,
+          "citation_recall": 0.5,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        },
+        {
+          "id": "rag-production-en",
+          "question": "Which operational concerns matter in production RAG?",
+          "source_type": "multi_document",
+          "top_documents": [
+            "rag-basics.md",
+            "rag-evaluation.md",
+            "rag-evaluation.md",
+            "rag-evaluation.md",
+            "hybrid-search.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 337,
+          "pipeline_latency_ms": 10140,
+          "answer": "生产 RAG 系统需要关注去重、增量索引、引用来源、评测集、超时和可观测性 [1]。",
+          "citations": [
+            "rag-basics.md",
+            "rag-evaluation.md",
+            "rag-evaluation.md",
+            "hybrid-search.md"
+          ],
+          "answer_correctness": 0.05555555555555555,
+          "citation_precision": 1,
+          "citation_recall": 0.5,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        },
+        {
+          "id": "eval-ground-truth",
+          "question": "检索评测中的 ground truth 是什么？",
+          "source_type": "markdown",
+          "top_documents": [
+            "rag-evaluation.md",
+            "rag-basics.md",
+            "go-context.md",
+            "go-concurrency.md",
+            "hybrid-search.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 396,
+          "pipeline_latency_ms": 4207,
+          "answer": "固定问题和人工标注的相关文档 [1]。",
+          "citations": [
+            "rag-evaluation.md",
+            "rag-basics.md",
+            "go-context.md",
+            "go-concurrency.md",
+            "hybrid-search.md"
+          ],
+          "answer_correctness": 0.64,
+          "citation_precision": 1,
+          "citation_recall": 1,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        },
+        {
+          "id": "eval-ground-truth-en",
+          "question": "What does a retrieval ground truth contain?",
+          "source_type": "markdown",
+          "top_documents": [
+            "rag-evaluation.md",
+            "rag-basics.md",
+            "hybrid-search.md",
+            "rag-evaluation.md",
+            "go-context.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 267,
+          "pipeline_latency_ms": 9571,
+          "answer": "包含固定问题和人工标注的相关文档 [1]。",
+          "citations": [
+            "rag-evaluation.md",
+            "rag-basics.md",
+            "hybrid-search.md",
+            "rag-evaluation.md",
+            "go-context.md"
+          ],
+          "answer_correctness": 0,
+          "citation_precision": 1,
+          "citation_recall": 1,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        },
+        {
+          "id": "eval-mrr",
+          "question": "哪个指标关注第一个相关结果的位置？",
+          "source_type": "semantic",
+          "top_documents": [
+            "rag-evaluation.md",
+            "hybrid-search.md",
+            "rag-evaluation.md",
+            "hybrid-search.md",
+            "hybrid-search.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 249,
+          "pipeline_latency_ms": 4095,
+          "answer": "MRR 关注第一个相关结果出现的位置 [1]。",
+          "citations": [
+            "rag-evaluation.md",
+            "hybrid-search.md",
+            "rag-evaluation.md",
+            "hybrid-search.md"
+          ],
+          "answer_correctness": 0.9655172413793104,
+          "citation_precision": 1,
+          "citation_recall": 1,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        },
+        {
+          "id": "eval-ndcg-en",
+          "question": "How does nDCG evaluate ranking?",
+          "source_type": "markdown",
+          "top_documents": [
+            "rag-evaluation.md",
+            "rag-evaluation.md",
+            "hybrid-search.md",
+            "rag-evaluation.md",
+            "rag-basics.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 296,
+          "pipeline_latency_ms": 4423,
+          "answer": "nDCG@K 同时考虑多个相关结果及其排名位置 [1]。",
+          "citations": [
+            "rag-evaluation.md",
+            "rag-evaluation.md",
+            "hybrid-search.md",
+            "rag-basics.md"
+          ],
+          "answer_correctness": 0.07407407407407407,
+          "citation_precision": 1,
+          "citation_recall": 1,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        },
+        {
+          "id": "eval-negative",
+          "question": "为什么评测需要 hard negative？",
+          "source_type": "hard_negative",
+          "top_documents": [
+            "rag-evaluation.md",
+            "rag-evaluation.md",
+            "rag-basics.md",
+            "go-context.md",
+            "rag-evaluation.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 231,
+          "pipeline_latency_ms": 5401,
+          "answer": "因为只使用关键词完全一致的问题会高估系统效果[1]。",
+          "citations": [
+            "rag-evaluation.md",
+            "rag-evaluation.md",
+            "rag-basics.md",
+            "go-context.md"
+          ],
+          "answer_correctness": 0.09523809523809525,
+          "citation_precision": 1,
+          "citation_recall": 1,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        },
+        {
+          "id": "eval-latency",
+          "question": "平均延迟之外还应该记录什么延迟指标？",
+          "source_type": "markdown",
+          "top_documents": [
+            "rag-evaluation.md",
+            "go-concurrency.md",
+            "rag-evaluation.md",
+            "go-concurrency.md",
+            "rag-basics.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 263,
+          "pipeline_latency_ms": 2866,
+          "answer": "P95 延迟 [1]",
+          "citations": [
+            "rag-evaluation.md",
+            "go-concurrency.md",
+            "rag-evaluation.md",
+            "go-concurrency.md",
+            "rag-basics.md"
+          ],
+          "answer_correctness": 0.18181818181818182,
+          "citation_precision": 1,
+          "citation_recall": 1,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        },
+        {
+          "id": "hybrid-strengths",
+          "question": "精确术语和语义改写分别适合哪种检索方式？",
+          "source_type": "code",
+          "top_documents": [
+            "hybrid-search.md",
+            "rag-evaluation.md",
+            "go-concurrency.md",
+            "rag-basics.md",
+            "hybrid-search.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 349,
+          "pipeline_latency_ms": 5598,
+          "answer": "精确术语适合关键词检索 [1]，语义改写适合向量检索 [1]。",
+          "citations": [
+            "hybrid-search.md",
+            "rag-evaluation.md",
+            "go-concurrency.md",
+            "rag-basics.md",
+            "hybrid-search.md"
+          ],
+          "answer_correctness": 0.37209302325581395,
+          "citation_precision": 1,
+          "citation_recall": 1,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        },
+        {
+          "id": "hybrid-function-en",
+          "question": "Which search handles exact function names best?",
+          "source_type": "code",
+          "top_documents": [
+            "hybrid-search.md",
+            "rag-evaluation.md",
+            "rag-basics.md",
+            "hybrid-search.md",
+            "go-concurrency.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 360,
+          "pipeline_latency_ms": 6926,
+          "answer": "资料不足，我不知道。",
+          "citations": [
+            "hybrid-search.md",
+            "rag-evaluation.md",
+            "rag-basics.md",
+            "hybrid-search.md",
+            "go-concurrency.md"
+          ],
+          "answer_correctness": 0,
+          "citation_precision": 0,
+          "citation_recall": 0,
+          "faithfulness": 0,
+          "unsupported_claim_rate": 1,
+          "refusal_accuracy": 0
+        },
+        {
+          "id": "hybrid-benefit-en",
+          "question": "What is the benefit of reciprocal rank fusion?",
+          "source_type": "markdown",
+          "top_documents": [
+            "hybrid-search.md",
+            "rag-evaluation.md",
+            "hybrid-search.md",
+            "rag-evaluation.md",
+            "rag-basics.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 452,
+          "pipeline_latency_ms": 5845,
+          "answer": "RRF 融合的是相对排名，不直接相加向量相似度和关键词分数，因此不要求两种原始分数处于相同量纲 [1]。",
+          "citations": [
+            "hybrid-search.md",
+            "rag-evaluation.md",
+            "hybrid-search.md",
+            "rag-evaluation.md",
+            "rag-basics.md"
+          ],
+          "answer_correctness": 0.03846153846153846,
+          "citation_precision": 1,
+          "citation_recall": 1,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        },
+        {
+          "id": "hybrid-small-pool",
+          "question": "候选池过小会造成什么问题？",
+          "source_type": "hard_negative",
+          "top_documents": [
+            "hybrid-search.md",
+            "671 马克思主义基本原理.pdf",
+            "rag-evaluation.md",
+            "go-concurrency.md",
+            "rag-evaluation.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 406,
+          "pipeline_latency_ms": 4872,
+          "answer": "会让相关内容在融合前就被截断[1]。",
+          "citations": [
+            "hybrid-search.md",
+            "671 马克思主义基本原理.pdf",
+            "rag-evaluation.md",
+            "go-concurrency.md",
+            "rag-evaluation.md"
+          ],
+          "answer_correctness": 0.8125000000000001,
+          "citation_precision": 1,
+          "citation_recall": 1,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        },
+        {
+          "id": "hybrid-large-pool",
+          "question": "What is the tradeoff of a very large candidate pool?",
+          "source_type": "hard_negative",
+          "top_documents": [
+            "hybrid-search.md",
+            "rag-evaluation.md",
+            "rag-evaluation.md",
+            "go-concurrency.md",
+            "go-concurrency.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 399,
+          "pipeline_latency_ms": 3928,
+          "answer": "候选池过大则增加数据库计算和后续重排延迟 [1]。",
+          "citations": [
+            "hybrid-search.md",
+            "rag-evaluation.md",
+            "rag-evaluation.md",
+            "go-concurrency.md",
+            "go-concurrency.md"
+          ],
+          "answer_correctness": 0,
+          "citation_precision": 1,
+          "citation_recall": 1,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        },
+        {
+          "id": "context-purpose",
+          "question": "Go 的 context.Context 主要用来做什么？",
+          "source_type": "code",
+          "top_documents": [
+            "go-context.md",
+            "go-concurrency.md",
+            "go-concurrency.md",
+            "go-concurrency.md",
+            "rag-basics.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 317,
+          "pipeline_latency_ms": 7467,
+          "answer": "在 API 边界和 goroutine 之间传递截止时间、取消信号以及请求范围的值 [1]；把超时或取消信号传到调用链 [2]；负责请求范围的生命周期信号 [3]。",
+          "citations": [
+            "go-context.md",
+            "go-concurrency.md",
+            "go-concurrency.md",
+            "rag-basics.md"
+          ],
+          "answer_correctness": 0.3880597014925373,
+          "citation_precision": 0.5,
+          "citation_recall": 1,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        },
+        {
+          "id": "context-signals-en",
+          "question": "What values and signals does context.Context carry?",
+          "source_type": "code",
+          "top_documents": [
+            "go-context.md",
+            "go-concurrency.md",
+            "go-concurrency.md",
+            "rag-basics.md",
+            "rag-evaluation.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 362,
+          "pipeline_latency_ms": 3850,
+          "answer": "截止时间、取消信号以及请求范围的值 [1]。",
+          "citations": [
+            "go-context.md",
+            "go-concurrency.md",
+            "go-concurrency.md",
+            "rag-basics.md",
+            "rag-evaluation.md"
+          ],
+          "answer_correctness": 0,
+          "citation_precision": 1,
+          "citation_recall": 1,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        },
+        {
+          "id": "context-storage",
+          "question": "Why should context not be stored in a struct?",
+          "source_type": "code",
+          "top_documents": [
+            "go-context.md",
+            "go-concurrency.md",
+            "go-concurrency.md",
+            "rag-evaluation.md",
+            "hybrid-search.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 347,
+          "pipeline_latency_ms": 5653,
+          "answer": "资料不足，我不知道。",
+          "citations": [
+            "go-context.md",
+            "go-concurrency.md",
+            "go-concurrency.md",
+            "rag-evaluation.md",
+            "hybrid-search.md"
+          ],
+          "answer_correctness": 0,
+          "citation_precision": 0,
+          "citation_recall": 0,
+          "faithfulness": 0,
+          "unsupported_claim_rate": 1,
+          "refusal_accuracy": 0
+        },
+        {
+          "id": "concurrency-waitgroup",
+          "question": "WaitGroup 能不能传播 goroutine 的错误并取消其他任务？",
+          "source_type": "code",
+          "top_documents": [
+            "go-concurrency.md",
+            "go-concurrency.md",
+            "go-context.md",
+            "go-concurrency.md",
+            "rag-evaluation.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 490,
+          "pipeline_latency_ms": 7254,
+          "answer": "sync.WaitGroup 本身不传播错误，也不会主动取消其他任务 [1]。需要错误传播时可以使用 errgroup，需要把超时或取消信号传到调用链时使用 context.Context [1]。",
+          "citations": [
+            "go-concurrency.md",
+            "go-concurrency.md",
+            "go-context.md",
+            "rag-evaluation.md"
+          ],
+          "answer_correctness": 0.20588235294117646,
+          "citation_precision": 1,
+          "citation_recall": 1,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        },
+        {
+          "id": "concurrency-waitgroup-en",
+          "question": "Can a WaitGroup cancel sibling goroutines?",
+          "source_type": "code",
+          "top_documents": [
+            "go-concurrency.md",
+            "go-concurrency.md",
+            "go-concurrency.md",
+            "go-context.md",
+            "rag-evaluation.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 452,
+          "pipeline_latency_ms": 10103,
+          "answer": "不能。sync.WaitGroup 只等待一组 goroutine 结束，本身不传播错误，也不会主动取消其他任务 [1]。",
+          "citations": [
+            "go-concurrency.md",
+            "go-concurrency.md",
+            "go-context.md",
+            "rag-evaluation.md"
+          ],
+          "answer_correctness": 0.05405405405405406,
+          "citation_precision": 1,
+          "citation_recall": 1,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        },
+        {
+          "id": "concurrency-channel",
+          "question": "通常应该由哪一方关闭 channel？",
+          "source_type": "code",
+          "top_documents": [
+            "go-concurrency.md",
+            "go-concurrency.md",
+            "go-context.md",
+            "go-concurrency.md",
+            "hybrid-search.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 390,
+          "pipeline_latency_ms": 5666,
+          "answer": "通常由发送方或明确拥有 channel 的一方负责关闭 channel，接收方不应随意关闭它。[1]",
+          "citations": [
+            "go-concurrency.md",
+            "go-concurrency.md",
+            "go-context.md",
+            "hybrid-search.md"
+          ],
+          "answer_correctness": 0.6511627906976745,
+          "citation_precision": 1,
+          "citation_recall": 1,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        },
+        {
+          "id": "concurrency-lifecycle",
+          "question": "并发任务怎样同时解决等待完成和请求取消两个问题？",
+          "source_type": "multi_document",
+          "top_documents": [
+            "go-concurrency.md",
+            "go-concurrency.md",
+            "go-concurrency.md",
+            "671 马克思主义基本原理.pdf",
+            "hybrid-search.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 0.5,
+          "ndcg_at_k": 0.6131471927654585,
+          "latency_ms": 356,
+          "pipeline_latency_ms": 8553,
+          "answer": "等待完成可以使用 sync.WaitGroup 等待一组 goroutine 结束 [1]；请求取消可以使用 context.Context 把超时或取消信号传到调用链 [1]。",
+          "citations": [
+            "go-concurrency.md",
+            "go-concurrency.md",
+            "671 马克思主义基本原理.pdf",
+            "hybrid-search.md"
+          ],
+          "answer_correctness": 0.20338983050847456,
+          "citation_precision": 1,
+          "citation_recall": 0.5,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        },
+        {
+          "id": "cross-grounding",
+          "question": "RAG 评测为什么既要看检索排序又要看生成忠实度？",
+          "source_type": "multi_document",
+          "top_documents": [
+            "rag-evaluation.md",
+            "rag-basics.md",
+            "rag-evaluation.md",
+            "rag-evaluation.md",
+            "hybrid-search.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 416,
+          "pipeline_latency_ms": 6261,
+          "answer": "资料不足，我不知道。",
+          "citations": [
+            "rag-evaluation.md",
+            "rag-basics.md",
+            "rag-evaluation.md",
+            "hybrid-search.md"
+          ],
+          "answer_correctness": 0.06451612903225806,
+          "citation_precision": 0,
+          "citation_recall": 0,
+          "faithfulness": 0,
+          "unsupported_claim_rate": 1,
+          "refusal_accuracy": 0
+        },
+        {
+          "id": "cross-grounding-en",
+          "question": "How do retrieval quality and grounding interact?",
+          "source_type": "multi_document",
+          "top_documents": [
+            "rag-basics.md",
+            "rag-evaluation.md",
+            "rag-evaluation.md",
+            "hybrid-search.md",
+            "go-context.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 424,
+          "pipeline_latency_ms": 5234,
+          "answer": "检索增强生成（RAG）先从外部知识库检索相关内容，再把这些内容放进语言模型的上下文中生成答案，检索质量通常直接影响最终回答质量 [1]。",
+          "citations": [
+            "rag-basics.md",
+            "rag-evaluation.md",
+            "rag-evaluation.md",
+            "hybrid-search.md",
+            "go-context.md"
+          ],
+          "answer_correctness": 0,
+          "citation_precision": 1,
+          "citation_recall": 0.5,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        },
+        {
+          "id": "pdf-ingestion",
+          "question": "PDF 文档能进入同一套 RAG 流程吗？",
+          "source_type": "pdf",
+          "top_documents": [
+            "rag-basics.md",
+            "rag-evaluation.md",
+            "rag-evaluation.md",
+            "rag-evaluation.md",
+            "hybrid-search.md"
+          ],
+          "first_relevant_rank": 1,
+          "recall_at_k": 1,
+          "ndcg_at_k": 1,
+          "latency_ms": 378,
+          "pipeline_latency_ms": 5035,
+          "answer": "资料不足，我不知道。",
+          "citations": [
+            "rag-basics.md",
+            "rag-evaluation.md",
+            "rag-evaluation.md",
+            "hybrid-search.md"
+          ],
+          "answer_correctness": 0,
+          "citation_precision": 0,
+          "citation_recall": 0,
+          "faithfulness": 0,
+          "unsupported_claim_rate": 1,
+          "refusal_accuracy": 0
+        },
+        {
+          "id": "no-answer-en",
+          "question": "What quantum error correction algorithm is described in the corpus?",
+          "source_type": "refusal",
+          "top_documents": [
+            "rag-basics.md",
+            "hybrid-search.md",
+            "go-concurrency.md",
+            "hybrid-search.md",
+            "rag-evaluation.md"
+          ],
+          "first_relevant_rank": 0,
+          "recall_at_k": 0,
+          "ndcg_at_k": 0,
+          "latency_ms": 325,
+          "pipeline_latency_ms": 9445,
+          "answer": "资料不足，我不知道。",
+          "citations": [
+            "rag-basics.md",
+            "hybrid-search.md",
+            "go-concurrency.md",
+            "hybrid-search.md",
+            "rag-evaluation.md"
+          ],
+          "answer_correctness": 1,
+          "citation_precision": 1,
+          "citation_recall": 1,
+          "faithfulness": 1,
+          "unsupported_claim_rate": 0,
+          "refusal_accuracy": 1
+        }
+      ]
+    }
+  ]
+}
